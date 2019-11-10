@@ -8,12 +8,7 @@
 
 <div class="container body-content">
 
-    <table class = "job-listing" >
-        <tr th:each="element : ${job}">
-            <td th:text="${element.key}"></td>
-            <td th:text="${element.value}"></td>
-        </tr>
-    </table>
+    <table th:replace="fragments :: single-job"></table>
 
 </div>
 

@@ -11,10 +11,10 @@
 
     <form th:object="${jobForm}" method="post">
 
-        <div class="form-group">
+        <div class="form-group" th:classappend="${#fields.hasErrors('name') ? 'has-error' : ''}" >
             <label th:for="name">Name</label>
-            <input th:field="*{name}" />
-            <div th:errors="*{name}"></div>
+            <input type="text" class="form-control" th:field="*{name}"/>
+            <span th:errors="*{name}"></span>
         </div>
 
         <div class="form-group">
@@ -29,27 +29,27 @@
         <div class="form-group">
             <label th:for="locationId">Location</label>
             <select th:field="*{locationId}">
-                <option th:each="location : *{locations}"
+                <option th:each="location: *{locations}"
                         th:value="${location.id}"
                         th:text="${location.value}"></option>
             </select>
         </div>
 
         <div class="form-group">
-            <label th:for="skillId">Skill</label>
-            <select th:field="*{skillId}">
-                <option th:each="skill : *{skills}"
-                        th:value="${skill.id}"
-                        th:text="${skill.value}"></option>
+            <label th:for="positionTypeId">Position Type</label>
+            <select th:field="*{positionTypeId}">
+                <option th:each="positionType: *{positionTypes}"
+                        th:value="${positionType.id}"
+                        th:text="${positionType.value}"></option>
             </select>
         </div>
 
         <div class="form-group">
-            <label th:for="positionId">Position Type</label>
-            <select th:field="*{positionId}">
-                <option th:each="positionType : *{positionTypes}"
-                        th:value="${positionType.id}"
-                        th:text="${positionType.value}"></option>
+            <label th:for="coreCompetencyId">Core Competency</label>
+            <select th:field="*{coreCompetencyId}">
+                <option th:each="coreCompetency: *{coreCompetencies}"
+                        th:value="${coreCompetency.id}"
+                        th:text="${coreCompetency.value}"></option>
             </select>
         </div>
 
@@ -59,4 +59,4 @@
 </div>
 
 </body>
-</html>l>>
+</html>
